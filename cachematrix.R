@@ -2,6 +2,7 @@
 ## functions do
 
 ## Write a short comment describing this function
+## Week 3 Sai Nerella Github: sainerella
 
 makeCacheMatrix <- function(x = matrix()) {
           invm <- NULL
@@ -18,7 +19,17 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
+## Inverses the matrix returned by the above function
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+          invm <- x$getinverse()
+          if(!is.null(invm)){
+                    message("getting cached data")
+                    return(invm)
+          }
+          data <-x$get()
+          invm<-solve(data,...)
+          x$setinverse(invm)
+          invm
 }
